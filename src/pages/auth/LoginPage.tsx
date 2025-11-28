@@ -1,6 +1,6 @@
 const LoginPage = () => {
   return (
-    <div>LoginPage</div>
+    <div className="bg-primary text-amber-300">LoginPage</div>
   )
 }
 
