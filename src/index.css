@@ -1,20 +1,21 @@
 @import "tailwindcss";
 
+@import "tailwindcss";
 
-/* small helpers */
-/* .btn {
-  @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-white bg-brand-500 hover:bg-blue-600;
+@theme {
+  --color-primary: #6950EB;
+  --color-secondary: #00f6f8;
+  --color-dimWhite: rgba(255, 255, 255, 0.7);
+  --color-dimBlue: rgba(9, 151, 124, 0.1);
+
+  --font-poppins: "Poppins", sans-serif;
 }
-.card {
-  @apply bg-white rounded-xl shadow p-6;
+
+@layer base {
+  input:focus,
+  textarea:focus,
+  select:focus,
+  button:focus {
+    @apply ring-1 ring-primary border-primary outline-none;
+  }
 }
-.input {
-  @apply w-full px-3 py-2 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-brand-500;
-}
-.label {
-  @apply block text-sm font-medium text-gray-700 mb-1;
-}
-.small {
-  @apply text-sm text-gray-500;
-}
-.form-field { @apply mb-4; } */
