@@ -1,5 +1,11 @@
 import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+  type Location,
+} from "react-router-dom";
 import PatientsPage from "./pages/patients/PatientsPage";
 import TherapistsPage from "./pages/therapists/TherapistsPage";
 import ServicesPage from "./pages/services/ServicesPage";
@@ -10,6 +16,7 @@ import Navbar from "./components/layout/Navbar";
 // import useAuthStore from "./store/authStore";
 import type { JSX } from "react/jsx-runtime";
 import Home from "./pages/Home";
+import Footer from "./components/layout/Footer";
 
 function Protected({ children }: { children: JSX.Element }) {
   // const { token } = useAuthStore();
@@ -19,9 +26,13 @@ function Protected({ children }: { children: JSX.Element }) {
 }
 
 export default function App() {
+  const location = useLocation();
+
   return (
     <div className="min-h-screen bg-gray-100">
-      <Navbar />
+      {location.pathname !== "/login" &&
+        location.pathname !== "/signup" &&
+        location.pathname !== "/register" && <Navbar />}
       {/* <main className="max-w-6xl mx-auto"> */}
       <main className="max-w-full mx-auto relative">
         <Routes>
@@ -75,6 +86,9 @@ export default function App() {
           <Route path="/payments" element={<PaymentPage/>} /> */}
         </Routes>
       </main>
+      {location.pathname !== "/login" &&
+        location.pathname !== "/signup" &&
+        location.pathname !== "/register" && <Footer />}
     </div>
   );
 }
