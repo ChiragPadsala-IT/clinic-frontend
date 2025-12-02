@@ -1,9 +1,19 @@
 import React from "react";
-import { HomePageBanner } from "../assets/images";
+import {
+  GarbhSanskarImage,
+  HomePageBanner,
+  HomeServicesImage,
+} from "../assets/images";
 import { easeIn, easeInOut, motion } from "framer-motion";
 import ServiceCard from "../components/ServiceCard";
 import ClinicTeamCard from "../components/ClinicTeamCard";
 import GoogleReviewCard from "../components/GoogleRevieCard";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+import { Pagination, Navigation } from "swiper/modules";
 
 const services = [
   {
@@ -61,6 +71,46 @@ const advisors = [
 ];
 
 const googleReviews = [
+  {
+    authorName: "Sam Parker",
+    authorAvatar: "https://i.pravatar.cc/100?img=8",
+    text: "I visited PhysioCare after a sports injury and the treatment plan was excellent. The staff were professional, the center was clean, and I could see steady progress within a few sessions. Highly recommend!, I visited PhysioCare after a sports injury and the treatment plan was excellent. The staff were professional, the center was clean, and I could see steady progress within a few sessions. Highly recommend!I visited PhysioCare after a sports injury and the treatment plan was excellent. The staff were professional, the center was clean, and I could see steady progress within a few sessions. Highly recommend!I visited PhysioCare after a sports injury and the treatment plan was excellent. The staff were professional, the center was clean, and I could see steady progress within a few sessions. Highly recommend!I visited PhysioCare after a sports injury and the treatment plan was excellent. The staff were professional, the center was clean, and I could see steady progress within a few sessions. Highly recommend!",
+    rating: 5,
+    date: "2025-11-01T12:00:00Z",
+    verified: true,
+  },
+  {
+    authorName: "Sam Parker",
+    authorAvatar: "https://i.pravatar.cc/100?img=8",
+    text: "I visited PhysioCare after a sports injury and the treatment plan was excellent. The staff were professional, the center was clean, and I could see steady progress within a few sessions. Highly recommend!, I visited PhysioCare after a sports injury and the treatment plan was excellent. The staff were professional, the center was clean, and I could see steady progress within a few sessions. Highly recommend!I visited PhysioCare after a sports injury and the treatment plan was excellent. The staff were professional, the center was clean, and I could see steady progress within a few sessions. Highly recommend!I visited PhysioCare after a sports injury and the treatment plan was excellent. The staff were professional, the center was clean, and I could see steady progress within a few sessions. Highly recommend!I visited PhysioCare after a sports injury and the treatment plan was excellent. The staff were professional, the center was clean, and I could see steady progress within a few sessions. Highly recommend!",
+    rating: 5,
+    date: "2025-11-01T12:00:00Z",
+    verified: true,
+  },
+  {
+    authorName: "Sam Parker",
+    authorAvatar: "https://i.pravatar.cc/100?img=8",
+    text: "I visited PhysioCare after a sports injury and the treatment plan was excellent. The staff were professional, the center was clean, and I could see steady progress within a few sessions. Highly recommend!, I visited PhysioCare after a sports injury and the treatment plan was excellent. The staff were professional, the center was clean, and I could see steady progress within a few sessions. Highly recommend!I visited PhysioCare after a sports injury and the treatment plan was excellent. The staff were professional, the center was clean, and I could see steady progress within a few sessions. Highly recommend!I visited PhysioCare after a sports injury and the treatment plan was excellent. The staff were professional, the center was clean, and I could see steady progress within a few sessions. Highly recommend!I visited PhysioCare after a sports injury and the treatment plan was excellent. The staff were professional, the center was clean, and I could see steady progress within a few sessions. Highly recommend!",
+    rating: 5,
+    date: "2025-11-01T12:00:00Z",
+    verified: true,
+  },
+  {
+    authorName: "Sam Parker",
+    authorAvatar: "https://i.pravatar.cc/100?img=8",
+    text: "I visited PhysioCare after a sports injury and the treatment plan was excellent. The staff were professional, the center was clean, and I could see steady progress within a few sessions. Highly recommend!, I visited PhysioCare after a sports injury and the treatment plan was excellent. The staff were professional, the center was clean, and I could see steady progress within a few sessions. Highly recommend!I visited PhysioCare after a sports injury and the treatment plan was excellent. The staff were professional, the center was clean, and I could see steady progress within a few sessions. Highly recommend!I visited PhysioCare after a sports injury and the treatment plan was excellent. The staff were professional, the center was clean, and I could see steady progress within a few sessions. Highly recommend!I visited PhysioCare after a sports injury and the treatment plan was excellent. The staff were professional, the center was clean, and I could see steady progress within a few sessions. Highly recommend!",
+    rating: 5,
+    date: "2025-11-01T12:00:00Z",
+    verified: true,
+  },
+  {
+    authorName: "Sam Parker",
+    authorAvatar: "https://i.pravatar.cc/100?img=8",
+    text: "I visited PhysioCare after a sports injury and the treatment plan was excellent. The staff were professional, the center was clean, and I could see steady progress within a few sessions. Highly recommend!, I visited PhysioCare after a sports injury and the treatment plan was excellent. The staff were professional, the center was clean, and I could see steady progress within a few sessions. Highly recommend!I visited PhysioCare after a sports injury and the treatment plan was excellent. The staff were professional, the center was clean, and I could see steady progress within a few sessions. Highly recommend!I visited PhysioCare after a sports injury and the treatment plan was excellent. The staff were professional, the center was clean, and I could see steady progress within a few sessions. Highly recommend!I visited PhysioCare after a sports injury and the treatment plan was excellent. The staff were professional, the center was clean, and I could see steady progress within a few sessions. Highly recommend!",
+    rating: 5,
+    date: "2025-11-01T12:00:00Z",
+    verified: true,
+  },
   {
     authorName: "Sam Parker",
     authorAvatar: "https://i.pravatar.cc/100?img=8",
@@ -129,15 +179,11 @@ const Home = () => {
       </div>
 
       {/* Services */}
-      <section
-        className="relative w-full bg-cover bg-center bg-no-repeat py-28 px-6 bg-fixed inset-0 bg-black/10 "
-        style={{
-          backgroundImage:
-            "url('https://www.news-medical.net/image-handler/picture/2018/4/shutterstock_By_ESB_Professional.jpg')",
-        }}
-      >
-        <div className="w-full max-w-6xl mx-auto my-5 px-4 inset-0 bg-black/60">
-          <h1 className="text-3xl font-bold text-center mb-8">Our Services</h1>
+      <section className="relative w-full bg-cover bg-center bg-no-repeat py-10 px-6 bg-fixed">
+        <div className="w-full max-w-6xl mx-auto my-5 px-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-7 text-center">
+            Our Services
+          </h1>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((item, index) => (
               <ServiceCard
@@ -230,8 +276,7 @@ const Home = () => {
       <section
         className="relative w-full bg-cover bg-center bg-no-repeat py-28 px-6 bg-fixed"
         style={{
-          backgroundImage:
-            "url('https://storage.jainebooks.org/sanskarshakti/2024/04/3-fetus.jpg')",
+          backgroundImage: `url(${GarbhSanskarImage})`,
         }}
       >
         {/* Overlay */}
@@ -261,82 +306,8 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Testimonial */}
-      {/* <div className="w-full max-w-6xl mx-auto my-10 px-4">
-        <h2 className="text-3xl font-bold text-center mb-8">
-          What Our Patients Say
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <motion.div
-            whileHover={{ scale: "1.05" }}
-            whileTap={{ scale: "1" }}
-            className="bg-white cursor-pointer p-6 rounded-xl shadow-md hover:shadow-lg transition"
-          >
-            <div className="flex items-center gap-4">
-              <img
-                src="https://i.pravatar.cc/100"
-                className="w-14 h-14 rounded-full object-cover"
-              />
-              <div>
-                <h3 className="text-lg font-semibold">Sarah Thompson</h3>
-                <p className="text-sm text-gray-500">Patient</p>
-              </div>
-            </div>
-            <div className="flex mt-3 text-yellow-400">⭐⭐⭐⭐⭐</div>
-
-            <p className="text-gray-600 mt-4 line-clamp-3">
-              I had an amazing experience at the clinic. The staff were very
-              supportive, and the physiotherapy treatment helped me recover
-              faster than I expected.
-            </p>
-          </motion.div>
-          <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
-            <div className="flex items-center gap-4">
-              <img
-                src="https://i.pravatar.cc/101"
-                className="w-14 h-14 rounded-full object-cover"
-              />
-              <div>
-                <h3 className="text-lg font-semibold">David Miller</h3>
-                <p className="text-sm text-gray-500">Athlete</p>
-              </div>
-            </div>
-
-            <div className="flex mt-3 text-yellow-400">⭐⭐⭐⭐⭐</div>
-
-            <p className="text-gray-600 mt-4 line-clamp-3">
-              The therapists really understand how to treat sports injuries.
-              Highly recommend this clinic for anyone looking for professional
-              care.
-            </p>
-          </div>
-
-          <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition">
-            <div className="flex items-center gap-4">
-              <img
-                src="https://i.pravatar.cc/102"
-                className="w-14 h-14 rounded-full object-cover"
-              />
-              <div>
-                <h3 className="text-lg font-semibold">Emily Carter</h3>
-                <p className="text-sm text-gray-500">Customer</p>
-              </div>
-            </div>
-
-            <div className="flex mt-3 text-yellow-400">⭐⭐⭐⭐⭐</div>
-
-            <p className="text-gray-600 mt-4 line-clamp-3">
-              The booking process was easy, the staff is friendly, and the
-              environment is clean and calming. Definitely my go-to place for
-              treatment.
-            </p>
-          </div>
-        </div>
-      </div> */}
-
       {/* Google Review */}
-      <div className="bg-white">
+      {/* <section className="bg-white py-10">
         <div className="w-full max-w-6xl mx-auto py-10 px-4 ">
           <h2 className="text-1 text-primary font-bold text-center mb-8">
             Testimonial
@@ -360,7 +331,45 @@ const Home = () => {
             ))}
           </div>
         </div>
-      </div>
+      </section> */}
+
+      <section className="bg-white py-10">
+        <div className="w-full max-w-6xl mx-auto py-10 px-4">
+          <h2 className="text-1 text-primary font-bold text-center mb-4">
+            Testimonial
+          </h2>
+          <h2 className="text-3xl font-bold text-center mb-8">
+            What Our Patients Say
+          </h2>
+
+          <Swiper
+            modules={[Pagination, Navigation]}
+            spaceBetween={20}
+            slidesPerView={1}
+            pagination={{ clickable: true }}
+            navigation
+            breakpoints={{
+              640: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+          >
+            {googleReviews.map((item, index) => (
+              <SwiperSlide key={index}>
+                <GoogleReviewCard
+                  authorName={item.authorName}
+                  date={item.date}
+                  rating={item.rating}
+                  text={item.text}
+                  authorAvatar={item.authorAvatar}
+                  source="google"
+                  verified={item.verified}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </section>
     </div>
   );
 };
