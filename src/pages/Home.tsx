@@ -307,32 +307,6 @@ const Home = () => {
       </section>
 
       {/* Google Review */}
-      {/* <section className="bg-white py-10">
-        <div className="w-full max-w-6xl mx-auto py-10 px-4 ">
-          <h2 className="text-1 text-primary font-bold text-center mb-8">
-            Testimonial
-          </h2>
-          <h2 className="text-3xl font-bold text-center mb-8">
-            What Our Patients Say
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {googleReviews.map((item, index) => (
-              <GoogleReviewCard
-                authorName={item.authorName}
-                date={item.date}
-                rating={item.rating}
-                text={item.text}
-                authorAvatar={item.authorAvatar}
-                key={index}
-                source={"google"}
-                verified={item.verified}
-              />
-            ))}
-          </div>
-        </div>
-      </section> */}
-
       <section className="bg-white py-10">
         <div className="w-full max-w-6xl mx-auto py-10 px-4">
           <h2 className="text-1 text-primary font-bold text-center mb-4">
