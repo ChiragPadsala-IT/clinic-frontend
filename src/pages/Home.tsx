@@ -22,7 +22,14 @@ const services = [
     description:
       "Therapy for motor skills, coordination, and developmental milestones in children.",
     image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/250px-Image_created_with_a_mobile_phone.png",
+      "https://peachphysio.ca/wp-content/uploads/2022/04/PeachPhysio-32-TAGGED-scaled-1.jpeg",
+  },
+  {
+    title: "Orthopedic Rehab",
+    description:
+      "Recovery support for bone, joint, and muscle injuries through guided physiotherapy.",
+    image:
+      "https://s16736.pcdn.co/wp-content/uploads/sites/270/2023/01/OrthopedicRehab.jpg.optimal.jpg",
   },
   {
     title: "Child Physiotherapy",
@@ -43,7 +50,14 @@ const services = [
     description:
       "Therapy for motor skills, coordination, and developmental milestones in children.",
     image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/250px-Image_created_with_a_mobile_phone.png",
+      "https://peachphysio.ca/wp-content/uploads/2022/04/PeachPhysio-32-TAGGED-scaled-1.jpeg",
+  },
+  {
+    title: "Orthopedic Rehab",
+    description:
+      "Recovery support for bone, joint, and muscle injuries through guided physiotherapy.",
+    image:
+      "https://s16736.pcdn.co/wp-content/uploads/sites/270/2023/01/OrthopedicRehab.jpg.optimal.jpg",
   },
 ];
 
@@ -185,10 +199,20 @@ const Home = () => {
       {/* Services */}
       <section className="relative w-full bg-cover bg-center bg-no-repeat py-10 px-6 bg-fixed">
         <div className="w-full max-w-6xl mx-auto my-5 px-4">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-7 text-center">
-            Our Services
-          </h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <h4 className="text-primary text-center font-semibold">
+            OUR SERVICES
+          </h4>
+
+          <h2 className="text-3xl md:text-4xl text-center font-bold text-gray-800 mt-2">
+            Move Freely, Live Fully with Our Care
+          </h2>
+
+          <p className="text-center text-gray-600 my-4">
+            Let us help you move better, live healthier, and feel stronger — at
+            every stage of life.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 -">
             {services.map((item, index) => (
               <ServiceCard
                 title={item.title}
@@ -198,6 +222,13 @@ const Home = () => {
               />
             ))}
           </div>
+
+          <button
+            className="mt-14 bg-primary text-white px-8 py-3 rounded-full text-lg 
+                      hover:bg-primary/90 hover:scale-102 active:scale-95 transition-all block mx-auto"
+          >
+            View all
+          </button>
         </div>
       </section>
 
