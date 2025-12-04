@@ -29,12 +29,12 @@ export default function App() {
   const location = useLocation();
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="flex flex-col min-h-screen bg-gray-100">
       {location.pathname !== "/login" &&
         location.pathname !== "/signup" &&
         location.pathname !== "/register" && <Navbar />}
       {/* <main className="max-w-6xl mx-auto"> */}
-      <main className="max-w-full mx-auto relative">
+      <main className="flex-grow relative">
         <Routes>
           {/* <Route path="/" element={<Navigate to="/patients" replace />} /> */}
           <Route path="/" element={<Home />} />

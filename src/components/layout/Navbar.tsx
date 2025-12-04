@@ -1,15 +1,17 @@
 import { useState } from "react";
 import { easeInOut, motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   // DEMO ONLY — replace with Zustand auth state later
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <>
-      <nav className="w-full bg-white shadow-md fixed top-0 left-0 z-50 relative">
+      <nav className="w-full bg-white shadow-md  top-0 left-0 z-50 relative">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
           {/* Logo + Clinic Name */}
           <div className="flex items-center gap-3 cursor-pointer">
@@ -25,13 +27,22 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <ul className="hidden md:flex items-center gap-10 text-gray-700 font-medium">
-            <li className="hover:text-primary transition cursor-pointer">
+            <li
+              className="hover:text-primary transition cursor-pointer"
+              onClick={() => navigate("/")}
+            >
               Home
             </li>
-            <li className="hover:text-primary transition cursor-pointer">
+            <li
+              className="hover:text-primary transition cursor-pointer"
+              onClick={() => navigate("/about-us")}
+            >
               About Us
             </li>
-            <li className="hover:text-primary transition cursor-pointer">
+            <li
+              className="hover:text-primary transition cursor-pointer"
+              onClick={() => navigate("/contact-us")}
+            >
               Contact
             </li>
 

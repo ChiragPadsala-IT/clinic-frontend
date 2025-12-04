@@ -13,7 +13,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
-import { Pagination, Navigation } from "swiper/modules";
+import { Pagination, Navigation, Autoplay } from "swiper/modules";
 
 const services = [
   {
@@ -123,7 +123,7 @@ const googleReviews = [
 
 const Home = () => {
   return (
-    <div className="relative flex flex-col ">
+    <div className=" flex flex-col ">
       <div className="w-full h-[100vh] max-sm:h-[80vh] max-md:flex justify-cente">
         <img
           src={HomePageBanner}
@@ -317,11 +317,12 @@ const Home = () => {
           </h2>
 
           <Swiper
-            modules={[Pagination, Navigation]}
+            modules={[Pagination, Navigation, Autoplay]}
             spaceBetween={20}
             slidesPerView={1}
             pagination={{ clickable: true }}
             navigation
+            autoplay={{ delay: 2000, disableOnInteraction: true }}
             breakpoints={{
               640: { slidesPerView: 1 },
               768: { slidesPerView: 2 },
