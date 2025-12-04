@@ -1,0 +1,54 @@
+<Routes>
+          {/* <Route path="/" element={<Navigate to="/patients" replace />} /> */}
+          <Route path="/" element={<Home />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route
+            path="/patients"
+            element={
+              // <Protected>
+              <PatientsPage />
+              // </Protected>
+            }
+          />
+          <Route
+            // path="/therapists"
+            path="/doctors"
+            element={<TherapistsPage />}
+            // element={
+            //   <Protected>
+            //     <TherapistsPage />
+            //   </Protected>
+            // }
+          />
+          <Route
+            path="/services"
+            element={
+              <Protected>
+                <ServicesPage />
+              </Protected>
+            }
+          />
+          <Route
+            path="/appointments"
+            element={
+              <Protected>
+                <AppointmentsPage />
+              </Protected>
+            }
+          />
+          <Route
+            path="/payments"
+            element={
+              <Protected>
+                <PaymentPage />
+              </Protected>
+            }
+          />
+          {/* <Route path="/patients" element={<PatientsPage/>} />
+          <Route path="/therapists" element={<TherapistsPage/>} />
+          <Route path="/services" element={<ServicesPage/>} />
+          <Route path="/appointments" element={<AppointmentsPage/>} />
+          <Route path="/payments" element={<PaymentPage/>} /> */}
+        </Routes>
