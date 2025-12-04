@@ -17,6 +17,8 @@ import Navbar from "./components/layout/Navbar";
 import type { JSX } from "react/jsx-runtime";
 import Home from "./pages/Home";
 import Footer from "./components/layout/Footer";
+import AboutUs from "./pages/AboutUs";
+import ContactUs from "./pages/ContactUs";
 
 function Protected({ children }: { children: JSX.Element }) {
   // const { token } = useAuthStore();
@@ -38,6 +40,8 @@ export default function App() {
         <Routes>
           {/* <Route path="/" element={<Navigate to="/patients" replace />} /> */}
           <Route path="/" element={<Home />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/contact-us" element={<ContactUs />} />
           <Route path="/login" element={<LoginPage />} />
           <Route
             path="/patients"
