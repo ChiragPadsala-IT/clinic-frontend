@@ -14,6 +14,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
+import { useNavigate } from "react-router-dom";
 
 const services = [
   {
@@ -122,6 +123,8 @@ const googleReviews = [
 ];
 
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <div className=" flex flex-col ">
       <div className="w-full h-[100vh] max-sm:h-[80vh] max-md:flex justify-cente">
@@ -171,6 +174,7 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.2, ease: easeInOut }}
             className="w-1/2 p-2 cursor-pointer rounded-full bg-primary text-white hover:bg-gray-light transition-all duration-110 active:scale-95 hover:scale-102"
+            onClick={() => navigate("/contact-us")}
           >
             Book appointment
           </motion.button>
