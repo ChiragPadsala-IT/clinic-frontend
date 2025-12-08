@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { easeInOut, motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import navMenu from "../../constant/navMenu";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -27,6 +28,43 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <ul className="hidden md:flex items-center gap-10 text-gray-700 font-medium">
+            {navMenu.map((item, index) => (
+              <li
+                className="hover:text-primary transition cursor-pointer"
+                onClick={() => navigate(item.path)}
+              >
+                {item.name}
+              </li>
+            ))}
+
+            {/* If User Is Logged In → Show Avatar */}
+            {isLoggedIn ? (
+              <div className="flex items-center gap-3 cursor-pointer">
+                <img
+                  src="https://placehold.co/40x40"
+                  alt="Avatar"
+                  className="w-10 h-10 rounded-full border shadow-sm"
+                />
+              </div>
+            ) : (
+              <div className="flex items-center gap-5">
+                <button
+                  className="px-4 py-1.5 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition"
+                  onClick={() => navigate("/login")}
+                >
+                  Login
+                </button>
+                <button
+                  className="px-4 py-1.5 rounded-full bg-primary text-white hover:bg-primary-dark transition"
+                  onClick={() => navigate("/register")}
+                >
+                  Sign Up
+                </button>
+              </div>
+            )}
+          </ul>
+
+          {/* <ul className="hidden md:flex items-center gap-10 text-gray-700 font-medium">
             <li
               className="hover:text-primary transition cursor-pointer"
               onClick={() => navigate("/")}
@@ -46,7 +84,6 @@ export default function Navbar() {
               Contact
             </li>
 
-            {/* If User Is Logged In → Show Avatar */}
             {isLoggedIn ? (
               <div className="flex items-center gap-3 cursor-pointer">
                 <img
@@ -65,7 +102,7 @@ export default function Navbar() {
                 </button>
               </div>
             )}
-          </ul>
+          </ul> */}
 
           {/* Mobile Menu Button */}
           <button

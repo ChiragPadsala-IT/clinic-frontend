@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Counter from "../components/Counter";
+import HeroPageTitle from "../components/HeroPageTitle";
 
 const AboutUs = () => {
   const statsRef = useRef<HTMLDivElement | null>(null);
@@ -22,15 +23,11 @@ const AboutUs = () => {
   return (
     <div className="w-full">
       {/* HERO SECTION */}
-      <section className="w-full bg-primary/10 py-16">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold text-primary mb-4">About Us</h1>
-          <p className="text-gray-700 max-w-3xl mx-auto">
-            Welcome to Nirlep Physiotherapy & Garbhsanskar Courses — your
-            trusted center for healing, wellness, and holistic pregnancy care.
-          </p>
-        </div>
-      </section>
+      <HeroPageTitle
+        pageTitle="About Us"
+        subTitle="Welcome to Nirlep Physiotherapy & Garbhsanskar Courses — your
+            trusted center for healing, wellness, and holistic pregnancy care."
+      />
 
       {/* ABOUT CONTENT */}
       <section className="max-w-6xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-10 items-center">

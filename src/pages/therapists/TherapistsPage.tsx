@@ -1,3 +1,5 @@
+import HeroPageTitle from "../../components/HeroPageTitle";
+
 const doctors = [
   {
     name: "Dr. Pallavi Narendra Patel",
@@ -31,15 +33,13 @@ const doctors = [
 const TherapistsPage = () => {
   return (
     <div>
-      <section className="w-full bg-primary/10 py-16">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold text-primary mb-4">Our Doctors</h1>
-          <p className="text-gray-700 max-w-3xl mx-auto">
-            Meet the experts who care for you at Nirlep Multispeciality
-            Physiotherapy & Garbhasanskar
-          </p>
-        </div>
-      </section>
+      {/* HERO SECTION */}
+      <HeroPageTitle
+        pageTitle="Our Doctors"
+        subTitle="Meet the experts who care for you at Nirlep Multispeciality
+            Physiotherapy & Garbhasanskar"
+      />
+
       <section className="py-16 bg-gray-50">
         <div className="max-w-6xl mx-auto px-4">
           {/* Doctors Grid */}

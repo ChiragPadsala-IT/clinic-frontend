@@ -6,6 +6,8 @@ import { Navigate } from "react-router-dom";
 import useAuthStore from "../store/authStore";
 import LoginPage from "../pages/auth/LoginPage";
 import RegisterPage from "../pages/auth/RegisterPage";
+import ServicesPage from "../pages/services/ServicesPage";
+import ServiceDetailsPage from "../pages/services/ServiceDetailsPage";
 
 // function Protected({ children }: { children: JSX.Element }) {
 //   const { token } = useAuthStore();
@@ -21,6 +23,8 @@ const appRoutes = [
   { path: "/about-us", element: <AboutUs /> },
   { path: "/contact-us", element: <ContactUs /> },
   { path: "/doctors", element: <TherapistsPage /> },
+  { path: "/services", element: <ServicesPage /> },
+  { path: "/services/:title/:description", element: <ServiceDetailsPage /> },
 ];
 
 export default appRoutes;
