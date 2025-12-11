@@ -186,7 +186,7 @@ const AboutUs = () => {
               experience.
             </p>
             <a
-              href="/contact"
+              href="/contact-us"
               className="inline-block bg-primary text-white px-6 py-3 rounded-xl shadow hover:opacity-90"
             >
               Contact Now

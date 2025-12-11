@@ -1,6 +1,7 @@
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import ServiceCard from "../../components/ServiceCard";
 import HeroPageTitle from "../../components/HeroPageTitle";
+import { useEffect } from "react";
 
 const services = [
   {
@@ -49,6 +50,11 @@ const services = [
 
 const ServicesPage = () => {
   const navigate = useNavigate();
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <div className="w-full">
@@ -73,34 +79,12 @@ const ServicesPage = () => {
           {/* Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
             {services.map((item, index) => (
-              <div
+              <ServiceCard
                 key={index}
-                className="bg-white border border-gray-200 shadow-md rounded-2xl overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300"
-              >
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="w-full h-48 object-cover"
-                />
-
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-primary">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-600 mt-2 text-sm">
-                    {item.description}
-                  </p>
-
-                  <button
-                    className="mt-4 text-primary border border-primary px-4 py-2 rounded-full text-sm font-medium hover:bg-primary hover:text-white transition-all"
-                    onClick={(e: React.MouseEvent<HTMLButtonElement>) =>
-                      navigate(`/services/${item.title}/${item.description}`)
-                    }
-                  >
-                    Learn More
-                  </button>
-                </div>
-              </div>
+                title={item.title}
+                image={item.image}
+                description={item.description}
+              />
             ))}
           </div>
         </div>
