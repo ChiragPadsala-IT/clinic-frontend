@@ -11,12 +11,48 @@ const ServiceDetailsPage = () => {
   const pageDescription = decodeURIComponent(description!.toString());
 
   const services = [
-    "Orthopedic Rehab",
-    "Child Physiotherapy",
-    "Women’s Physio & Fitness",
-    "Sports Injury Rehab",
-    "Personalized Weight Loss Plans",
-    "Garbhsanskar Classes",
+    {
+      title: "Child Physiotherapy",
+      description:
+        "Therapy for motor skills, coordination, and developmental milestones in children.",
+      image:
+        "https://peachphysio.ca/wp-content/uploads/2022/04/PeachPhysio-32-TAGGED-scaled-1.jpeg",
+    },
+    {
+      title: "Orthopedic Rehab",
+      description:
+        "Recovery support for bone, joint, and muscle injuries through guided physiotherapy.",
+      image:
+        "https://s16736.pcdn.co/wp-content/uploads/sites/270/2023/01/OrthopedicRehab.jpg.optimal.jpg",
+    },
+    {
+      title: "Child Physiotherapy",
+      description:
+        "Therapy for motor skills, coordination, and developmental milestones in children.",
+      image:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/250px-Image_created_with_a_mobile_phone.png",
+    },
+    {
+      title: "Child Physiotherapy",
+      description:
+        "Therapy for motor skills, coordination, and developmental milestones in children.",
+      image:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/250px-Image_created_with_a_mobile_phone.png",
+    },
+    {
+      title: "Child Physiotherapy",
+      description:
+        "Therapy for motor skills, coordination, and developmental milestones in children.",
+      image:
+        "https://peachphysio.ca/wp-content/uploads/2022/04/PeachPhysio-32-TAGGED-scaled-1.jpeg",
+    },
+    {
+      title: "Orthopedic Rehab",
+      description:
+        "Recovery support for bone, joint, and muscle injuries through guided physiotherapy.",
+      image:
+        "https://s16736.pcdn.co/wp-content/uploads/sites/270/2023/01/OrthopedicRehab.jpg.optimal.jpg",
+    },
   ];
 
   const subService = [
@@ -144,8 +180,11 @@ const ServiceDetailsPage = () => {
                     <li
                       key={i}
                       className="p-3 border border-gray-200 rounded-lg hover:bg-primary/10 cursor-pointer transition-all"
+                      onClick={() =>
+                        navigate(`/services/${item.title}/${item.description}`)
+                      }
                     >
-                      {item}
+                      {item.title}
                     </li>
                   ))}
                 </ul>
