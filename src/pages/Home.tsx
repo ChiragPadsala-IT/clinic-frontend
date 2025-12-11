@@ -226,8 +226,11 @@ const Home = () => {
           <button
             className="mt-14 bg-primary text-white px-8 py-3 rounded-full text-lg 
                       hover:bg-primary/90 hover:scale-102 active:scale-95 transition-all block mx-auto"
+            onClick={() => {
+              navigate("/services");
+            }}
           >
-            View all
+            View More
           </button>
         </div>
       </section>
