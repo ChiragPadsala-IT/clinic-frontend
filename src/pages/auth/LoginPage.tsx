@@ -4,6 +4,7 @@ import { authService } from "../../services/authService";
 import useAuthStore from "../../store/authStore";
 // import Button from "../../components/Button";
 import { LoginImage } from "../../assets/images";
+import type { AxiosError, AxiosResponse } from "axios";
 
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -16,13 +17,14 @@ const LoginPage: React.FC = () => {
     try {
       console.log("email : " + email);
       console.log("password : " + password);
-      const res = await authService.login(email, password);
-      // const token = res.token;
-      // const staff = res.staff;
-      // setAuth(token, staff);
-      navigate("/patients");
-    } catch (err: any) {
-      alert(err?.response?.data?.message || err.message);
+      const res: AxiosResponse = await authService.login(email, password);
+
+      if (res.status === 200) {
+        setAuth(res.data.token, res.data.user.email, res.data.user.role);
+        navigate("/");
+      }
+    } catch (err: AxiosError | any) {
+      alert(err.response.data.message);
     }
   };
 

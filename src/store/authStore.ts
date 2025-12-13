@@ -14,7 +14,7 @@ const useAuthStore = create<AuthState>()(
   persist(
     (set) => ({
       token: null,
-      user: null,
+      email: null,
       userRole: null,
       setAuth: (token, email, userRole) => {
         set({ token, email, userRole });
