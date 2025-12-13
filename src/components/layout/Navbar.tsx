@@ -17,7 +17,7 @@ export default function Navbar() {
           {/* Logo + Clinic Name */}
           <div className="flex items-center gap-3 cursor-pointer">
             <img
-              src="/logo.png"
+              src="https://nirlep.in/wp-content/uploads/2025/07/nirlep-logo.webp"
               alt="Clinic Logo"
               className="w-10 h-10 object-contain"
             />
@@ -49,13 +49,13 @@ export default function Navbar() {
             ) : (
               <div className="flex items-center gap-5">
                 <button
-                  className="px-4 py-1.5 rounded-full border border-primary text-primary hover:bg-primary hover:text-white transition"
+                  className="px-4 py-1.5 rounded-full cursor-pointer border border-primary text-primary hover:bg-primary hover:text-white transition"
                   onClick={() => navigate("/login")}
                 >
                   Login
                 </button>
                 <button
-                  className="px-4 py-1.5 rounded-full bg-primary text-white hover:bg-primary-dark transition"
+                  className="px-4 py-1.5 rounded-full cursor-pointer bg-primary text-white hover:bg-primary-dark transition"
                   onClick={() => navigate("/register")}
                 >
                   Sign Up

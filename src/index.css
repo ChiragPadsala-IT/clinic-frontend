@@ -3,7 +3,8 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #6950EB;
+  /* --color-primary: #6950EB; */
+  --color-primary: #049493;
   --color-secondary: #00f6f8;
   --color-dimWhite: rgba(255, 255, 255, 0.7);
   --color-dimBlue: rgba(9, 151, 124, 0.1);
@@ -11,11 +12,11 @@
   --font-poppins: "Poppins", sans-serif;
 }
 
-@layer base {
+/* @layer base {
   input:focus,
   textarea:focus,
   select:focus,
   button:focus {
     @apply ring-1 ring-primary border-primary outline-none;
   }
-}
+} */

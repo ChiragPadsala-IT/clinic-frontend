@@ -4,13 +4,12 @@ import { authService } from "../../services/authService";
 import useAuthStore from "../../store/authStore";
 // import Button from "../../components/Button";
 import { LoginImage } from "../../assets/images";
-import { color } from "../../style";
 
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { setAuth } = useAuthStore();
-  const nav = useNavigate();
+  const navigate = useNavigate();
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -18,10 +17,10 @@ const LoginPage: React.FC = () => {
       console.log("email : " + email);
       console.log("password : " + password);
       const res = await authService.login(email, password);
-      const token = res.token;
-      const staff = res.staff;
-      setAuth(token, staff);
-      nav("/patients");
+      // const token = res.token;
+      // const staff = res.staff;
+      // setAuth(token, staff);
+      navigate("/patients");
     } catch (err: any) {
       alert(err?.response?.data?.message || err.message);
     }
@@ -34,7 +33,12 @@ const LoginPage: React.FC = () => {
         <div className="w-full max-w-md">
           <form onSubmit={submit}>
             {/* Logo */}
-            <h1 className="text-3xl font-semibold mb-2">Welcome back</h1>
+            <h1 className="text-3xl font-semibold text-primary text-center mb-10">
+              Login
+            </h1>
+            <h1 className="text-2xl font-semibold mb-2 text-primary">
+              Welcome back
+            </h1>
             <p className="text-gray-600 mb-8">Please enter your details</p>
             {/* Email */}
             <div className="mb-5">
@@ -60,34 +64,33 @@ const LoginPage: React.FC = () => {
             </div>
             {/* Remember + Forgot */}
             <div className="flex justify-between items-center mb-6 text-sm">
-              <a
-                href="#"
-                className="hover:underline text-blue-600"
-                style={{ color: color.primaryColoe }}
-              >
+              <a href="#" className="hover:underline text-primary">
                 Forgot password
               </a>
             </div>
             {/* Sign In */}
             <button
               type="submit"
-              className="mt-4 w-full py-2.5 border border-border cursor-pointer rounded-lg bg-white hover:bg-gray-light transition-all duration-110 active:scale-95 hover:scale-102"
-              style={{ background: color.primaryColoe, color: "white" }}
+              className="mt-4 w-full py-3 rounded-xl text-white font-semibold bg-primary
+             shadow-md hover:shadow-lg 
+             transition-all duration-300 hover:scale-[1.02] active:scale-[0.96]"
             >
-              <div className="flex justify-center items-center gap-2">
-                Login
-              </div>
+              {/* <div className="flex justify-center items-center gap-2"> */}
+              Login
+              {/* </div> */}
             </button>
+
             {/* Sign Up Link */}
             <p className="mt-6 text-center text-sm">
               Don't have an account?
-              <a
-                href="/signup"
-                className="text-primary font-medium hover:underline"
+              <span
+                // href="/register"
+                className="text-primary font-medium hover:underline cursor-pointer"
+                onClick={() => navigate("/register")}
               >
                 {" "}
                 Sign up
-              </a>
+              </span>
             </p>
           </form>
         </div>

@@ -4,8 +4,9 @@ import { setAuthToken } from "../services/api";
 
 interface AuthState {
   token?: string | null;
-  staff?: any | null;
-  setAuth: (token: string | null, staff?: any) => void;
+  email?: string | null;
+  userRole: string | null;
+  setAuth: (token: string | null, email: string, userRole: string) => void;
   logout: () => void;
 }
 
@@ -13,13 +14,14 @@ const useAuthStore = create<AuthState>()(
   persist(
     (set) => ({
       token: null,
-      staff: null,
-      setAuth: (token, staff) => {
-        set({ token, staff });
+      user: null,
+      userRole: null,
+      setAuth: (token, email, userRole) => {
+        set({ token, email, userRole });
         setAuthToken(token || undefined);
       },
       logout: () => {
-        set({ token: null, staff: null });
+        set({ token: null, email: null, userRole: null });
         setAuthToken(undefined);
       },
     }),
